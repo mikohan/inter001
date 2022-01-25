@@ -10,12 +10,21 @@
 // function reverse(str) {
 //     return str.split('').reverse().join('')
 // }
+
+// Second solution
+// function reverse(str) {
+//     let reversed = ''
+//     for(let character of str){
+//         reversed = character + reversed;
+//     }
+//     return reversed
+// }
+
+// Third solution
+
 function reverse(str) {
-    let reversed = ''
-    for(let character of str){
-        reversed = character + reversed;
-    }
-    return reversed
+  const arr = str.split('');
+  return arr.reduce((reversed, character) => character + reversed, '');
 }
 
 module.exports = reverse;
