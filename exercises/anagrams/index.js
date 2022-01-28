@@ -7,7 +7,29 @@
 //   anagrams('rail safety', 'fairy tales') --> True
 //   anagrams('RAIL! SAFETY!', 'fairy tales') --> True
 //   anagrams('Hi there', 'Bye there') --> False
+const charMap = require('../lib/charMap');
 
-function anagrams(stringA, stringB) {}
+function anagrams(stringA, stringB) {
+  if (stringA.length !== stringB.length) {
+    return false;
+  }
+  const trimmedA = stringA.replace(/[^\w]/g, '').toLowerCase();
+  const trimmedB = stringB.replace(/[^\w]/g, '').toLowerCase();
+  const aMap = charMap(trimmedA);
+  const bMap = charMap(trimmedB);
+  for (var key in aMap) {
+    console.log(bMap[key]);
+    console.log(aMap[key]);
+    if (!bMap.hasOwnProperty(key)) {
+      return false;
+    }
+    if (bMap[key] !== aMap[key]) {
+      return false;
+    }
+  }
+  return true;
+}
+
+anagrams('Hello world', 'world hello');
 
 module.exports = anagrams;
