@@ -18,16 +18,19 @@ function anagrams(stringA, stringB) {
   const aMap = charMap(trimmedA);
   const bMap = charMap(trimmedB);
   for (var key in aMap) {
-    console.log(bMap[key]);
-    console.log(aMap[key]);
-    if (!bMap.hasOwnProperty(key)) {
-      return false;
-    }
     if (bMap[key] !== aMap[key]) {
       return false;
     }
   }
   return true;
+}
+
+// function anagrams(stringA, stringB) {
+//   return clearString(stringA) === clearString(stringB);
+// }
+
+function clearString(str) {
+  return str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
 }
 
 anagrams('Hello world', 'world hello');
