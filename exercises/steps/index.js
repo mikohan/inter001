@@ -32,7 +32,8 @@
 //     console.log(stair);
 //   }
 // }
-function steps(n, row = 0, stair = '') {
+
+function steps(n, row = 0, stair = "") {
   if (n === row) {
     return;
   }
@@ -43,9 +44,9 @@ function steps(n, row = 0, stair = '') {
   }
 
   if (stair.length <= row) {
-    stair += '#';
+    stair += "#";
   } else {
-    stair += ' ';
+    stair += " ";
   }
   steps(n, row, stair);
 }
