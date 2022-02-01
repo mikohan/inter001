@@ -32,6 +32,7 @@
 //     console.log(stair);
 //   }
 // }
+// comment
 
 function steps(n, row = 0, stair = "") {
   if (n === row) {
